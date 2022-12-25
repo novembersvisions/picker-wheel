@@ -51,8 +51,10 @@ class Wheel(GameApp):
         font_size=30,x=self.width/2, 
         y=self.height/2, linecolor='black')
 
-        self._textbox = TextInput(font_size=50, multiline=True, x=self.width/3, 
+        self._textbox = GText(font_size=50, multiline=True, x=self.width/3, 
         y=self.height/3)
+
+        return self._textbox
 
     def update(self,dt):
         """
@@ -68,4 +70,3 @@ class Wheel(GameApp):
         Draws the game objects to the view
         """
         self._message.draw(self.view)
-        self._textbox.draw(self.view)

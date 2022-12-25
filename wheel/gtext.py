@@ -1,27 +1,25 @@
 """
-GText is a subclass of TextInput, which allows for user input
+GText is a subclass of TextInput
 
-Adds the "draw" method
+Allows for user input, adds the "draw" method
 """
 from kivy.graphics import *
 from kivy.graphics.instructions import *
 from kivy.uix.textinput import TextInput
 from introcs.geom import Point2, Matrix
 import introcs
+from game2d import *
 
 class GText(TextInput):
     """
-    TextInput object from kivy with added functionality
+    A class allowing for user input in a textbox
     """
 
-    def draw(self, view):
+    def __init__(self,**keywords):
         """
-        Draws this shape in the provided view.
+        Initializes a GText object
 
-        param view view to draw to
-        type view  :class:`GView`
+        Parameter keywords: dictionary of keyword arguments 
+        Precondition: keys are attribute names
         """
-        try:
-            view.draw(self._cache)
-        except:
-            raise IOError('Cannot draw %s since it was not initialized properly' % repr(self))
+        return super().__init__(**keywords)
