@@ -33,7 +33,19 @@ class AnswerInput(BoxLayout):
 
     def __init__(self):
         """
-        Creates TextInput box and Button
+        Creates BoxLayout with widgets
         """
-        self.textinput = TextInput(size_hint_x=0.5,size_hint_y=0.8,focus=True)
-        self.button = Button(text='Generate Wheel',background_color='blue',font_size=15,size_hint_x=0.5,size_hint_y=0.2)
+        super().__init__(orientation='vertical',height='200px',size_hint_y=None)
+
+        self.textinput = TextInput(size_hint_x=0.5,size_hint_y=0.8)
+        self.button = Button(text='Generate Wheel',background_color='blue',font_size=15,
+        size_hint_x=0.5,size_hint_y=0.2)
+
+        self.add_widget(self.textinput)
+        self.add_widget(self.button)
+
+        # bind button for functionality
+        self.button.bind(on_press=self.pressed)
+    
+    def pressed(self):
+        pass
