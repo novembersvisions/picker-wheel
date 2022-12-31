@@ -31,14 +31,12 @@ class AnswerInput(BoxLayout):
     Creates BoxLayout in kivy
     """
 
-    Builder.load_file('gtext.kv')
-
     # get widgets from kv file
     textinput = ObjectProperty(None)
-    button = ObjectProperty(None)
 
-    def __init__(self):
+    def pressed(self):
         """
-        Creates BoxLayout with widgets
+        Occurs when the button is pressed
         """
-        pass
+        print('Name:', self.textinput.text)
+        self.textinput.text = ''
