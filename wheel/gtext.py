@@ -12,6 +12,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.lang.builder import Builder
 from kivy.uix.button import Button
 from kivy.uix.textinput import *
+from kivy.uix.widget import Widget
+from kivy.properties import ObjectProperty
 
 class GText(kivy.app.App):
     """
@@ -31,21 +33,12 @@ class AnswerInput(BoxLayout):
 
     Builder.load_file('gtext.kv')
 
+    # get widgets from kv file
+    textinput = ObjectProperty(None)
+    button = ObjectProperty(None)
+
     def __init__(self):
         """
         Creates BoxLayout with widgets
         """
-        super().__init__(orientation='vertical',height='200px',size_hint_y=None)
-
-        self.textinput = TextInput(size_hint_x=0.5,size_hint_y=0.8)
-        self.button = Button(text='Generate Wheel',background_color='blue',font_size=15,
-        size_hint_x=0.5,size_hint_y=0.2)
-
-        self.add_widget(self.textinput)
-        self.add_widget(self.button)
-
-        # bind button for functionality
-        self.button.bind(on_press=self.pressed)
-    
-    def pressed(self):
         pass
