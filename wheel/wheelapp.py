@@ -49,10 +49,9 @@ class Wheel(GameApp):
         """
         self._message = GLabel(text='Welcome \n What text do you want on the wheel?',
         font_size=30,x=self.width/2, 
-        y=self.height/2, linecolor='black')
+        y=500, linecolor='black')
 
-        self._textbox = GText(font_size=50, multiline=True, x=self.width/3, 
-        y=self.height/3)
+        self._textbox = GText().run()
 
         return self._textbox
 
@@ -63,7 +62,8 @@ class Wheel(GameApp):
         Parameter dt: The time in seconds since last update
         Precondition: dt is a number (int or float)
         """
-        self._text = self._textbox.text
+        #self._text = self._textbox.text
+        pass
 
     def draw(self):
         """

@@ -1,7 +1,7 @@
 """
 Main application script for picker wheel
 """
-from app import *
+from wheelapp import *
 
 # Application code
 if __name__ == '__main__':

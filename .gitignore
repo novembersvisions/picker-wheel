@@ -2,3 +2,4 @@
 wheel/.DS_Store
 wheel/__pycache__/app.cpython-39.pyc
 *.pyc
+*.pyc
