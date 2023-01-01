@@ -3,6 +3,7 @@ Module that constructs a picker wheel interface based on user input
 Uses game2d module from CS 1110
 """
 from game2d import *
+from pickerwheel import *
 
 class Wheel(GameApp):
     """
@@ -42,43 +43,8 @@ class Wheel(GameApp):
     # Attribute _state: initialized as 0; controls steps of the app
     # Invariant: _state is an int
 
-    # GETTERS AND SETTERS
 
-    def getMessage(self):
-        """
-        Returns the message displayed
-        """
-        return self._message
-
-    def setMessage(self,value):
-        """
-        Sets the message to the given value
-
-        Parameter value: what to set _message
-        Precondition: value must be a GLabel or None
-        """
-        assert isinstance(value,GLabel) or value == None
-
-        self._message = value
-
-    def getState(self):
-        """
-        Returns the state of the app
-        """
-        return self._state
-
-    def setState(self,value):
-        """
-        Sets the state to the given value
-
-        Parameter value: what to set _state
-        Precondition: value must be an int
-        """
-        assert isinstance(value,int)
-
-        self._state = value
-
-    # INITIALIZER
+    # Attribute
 
     def start(self):
         """
@@ -90,7 +56,9 @@ class Wheel(GameApp):
         y=500, linecolor='black')
 
         self._state = 0
-        #self._textbox.update(self.input)
+        self._textbox = PickerWheel().run()
+
+        return self._textbox
 
     def update(self,dt):
         """
@@ -100,7 +68,13 @@ class Wheel(GameApp):
         Precondition: dt is a number (int or float)
         """
         #self._text = self._textbox.text
-        pass
+
+        if self._state == 0:
+            if self.input.is_key_down('s'):
+                self._state = 1
+        
+        if self._state == 1:
+            self.loading()
 
     def draw(self):
         """
@@ -108,3 +82,10 @@ class Wheel(GameApp):
         """
         if self._state == 0:
             self._message.draw(self.view)
+
+    def loading(self):
+        """
+        Happens when the wheel is loading
+        """
+        self._textbox = None
+        self._message = None

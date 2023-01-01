@@ -10,7 +10,6 @@ import kivy.app
 from game2d import *
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import *
-from wheelapp import Wheel
 
 class PickerWheel(kivy.app.App):
     """
@@ -23,27 +22,12 @@ class PickerWheel(kivy.app.App):
         """
         return AnswerInput()
 
-    def update(self, input):
-        """
-        Obtains input from Wheel
-        Controls appearance of textbox and initial message
-
-        Parameter input: information about the mouse/keyboard
-        Precondition: must be an instance of GInput
-        """
-        if Wheel.getState() == 0:
-            if self.input.is_key_down('s'):
-                Wheel.setState(1)
-        
-        if self._state == 1:
-            self.loading()
-
     
     def loading(self):
         """
         Happens when the wheel is loading
         """
-        Wheel.setMessage(None)
+        pass
 
 class AnswerInput(BoxLayout):
     """
